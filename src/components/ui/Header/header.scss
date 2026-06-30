@@ -1,0 +1,43 @@
+  header {
+      border-block: 1px dashed var(--border);
+      padding: 0.75rem;
+      align-items: end;
+
+      .logo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.75rem;
+
+          img {
+              width: 2.875rem;
+          }
+
+          span {
+              font-size: 1.5rem;
+              font-weight: 500;
+          }
+      }
+
+      .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0%;
+
+          menu ul {
+              display: flex;
+              gap: 1.5rem;
+              list-style: none;
+          }
+
+          menu ul li a {
+              text-decoration: none;
+              padding: 0.75rem;
+              display: block;
+              border-bottom: 2px solid var(--accent);
+              color: white;
+              font-weight: 600;
+          }
+      }
+  }

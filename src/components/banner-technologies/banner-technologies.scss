@@ -1,0 +1,46 @@
+.banner-technologies {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+
+    background: var(--accent);
+    overflow: hidden;
+
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee 20s linear infinite;
+    }
+
+    .marquee-content {
+        display: flex;
+        gap: 3rem;
+        padding-right: 3rem;
+        flex-shrink: 0;
+
+        span {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bg);
+            white-space: nowrap;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            &:hover {
+                color: var(--bg);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

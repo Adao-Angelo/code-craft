@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+:root {
+  --text: #F3EAFF;
+  --text-h: #F3EAFF;
+  --bg: #0F011A;
+  --border: #DEDEE6;
+  --accent: #22FB66;
+  --accent-bg: #22FB66;
+
+  --sans: 'Inter', system-ui, Roboto, sans-serif;
+  --heading: 'Inter', system-ui, Roboto, sans-serif;
+
+  --gradient-primary: linear-gradient(40deg, #0F011A 0%, #390260 60%, #8800E6 100%);
+
+  font: 16px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+
+a,
+p,
+span,
+button {
+  font-family: var(--sans);
+}
+
+.relative-container {
+  position: relative;
+}
