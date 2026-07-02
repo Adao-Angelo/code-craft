@@ -1,4 +1,3 @@
-import { useGSAP } from "@gsap/react";
 import "./enrollment-section.scss";
 
 import {
@@ -7,7 +6,6 @@ import {
   TimeQuarter02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import gsap from "gsap";
 
 const courseInfo = [
   {
@@ -28,31 +26,6 @@ const courseInfo = [
 ];
 
 export function EnrollmentSection() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".enrollment-section",
-        start: "top 70%",
-      },
-    });
-
-    tl.from(".enrollment-title", {
-      y: 50,
-      opacity: 0,
-    });
-
-    tl.from(".price", {
-      scale: 0.8,
-      opacity: 0,
-      duration: 1,
-    });
-
-    tl.from(".detail-card", {
-      y: 80,
-      opacity: 0,
-      stagger: 0.15,
-    });
-  });
   return (
     <section className="enrollment-section">
       <div>
@@ -62,21 +35,23 @@ export function EnrollmentSection() {
           </h2>
         </div>
 
-        <div className="price-container">
+        <div className="price-container" data-aos="flip-left">
           <h2 className="price">15.000 Kz</h2>
         </div>
 
         <div className="container">
           <div className="course-details">
             {courseInfo.map((item) => (
-              <div className="detail-card" key={item.title}>
-                <div className="icon-box">
-                  <HugeiconsIcon icon={item.icon} size={24} />
-                </div>
+              <div data-aos="flip-down">
+                <div className="detail-card" key={item.title}>
+                  <div className="icon-box">
+                    <HugeiconsIcon icon={item.icon} size={24} />
+                  </div>
 
-                <div>
-                  <span>{item.title}</span>
-                  <p>{item.value}</p>
+                  <div>
+                    <span>{item.title}</span>
+                    <p>{item.value}</p>
+                  </div>
                 </div>
               </div>
             ))}

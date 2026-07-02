@@ -13,7 +13,7 @@ export const journeyData = [
     description:
       "Aprenda Flexbox, Grid, responsividade e técnicas modernas de estilização para criar interfaces profissionais.",
     topics: ["Flexbox", "Grid", "Responsive Design"],
-    accentColor: "#19ff63",
+    accentColor: "#9700FF",
   },
   {
     weeks: "SEMANAS 6–8",
@@ -21,6 +21,6 @@ export const journeyData = [
     description:
       "Dê vida às suas páginas com JavaScript moderno, DOM, eventos e lógica de programação.",
     topics: ["DOM", "Eventos", "ES6+"],
-    accentColor: "#19ff63",
+    accentColor: "#00DDFF",
   },
 ];

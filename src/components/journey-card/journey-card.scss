@@ -6,7 +6,7 @@
 
 
     &__header {
-        background: var(--accent);
+        background: var(--accent-color);
         padding: 0.75rem;
         color: var(--bg);
     }
@@ -47,7 +47,7 @@
     &__line {
         width: 100%;
         height: 2px;
-        background: var(--accent);
+        background: var(--accent-color);
         margin-bottom: 1rem;
     }
 

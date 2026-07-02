@@ -1,9 +1,9 @@
 import { Clock01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import Logo from "../../Logo";
-import { Button } from "../Button/Button";
 
 import { useCountdown } from "../../../hooks/use-countdown";
+import Logo from "../../Logo";
+import { Button } from "../Button/Button";
 import "./header.scss";
 
 export default function Header() {

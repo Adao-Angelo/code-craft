@@ -1,0 +1,82 @@
+.mask-section {
+    .mask-container {
+        height: 300vh;
+
+        position: relative;
+        overflow-x: hidden;
+    }
+
+
+    .mask-image-container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+
+
+        mask-image: url("/logo.svg");
+        -webkit-mask-image: url("/logo.svg");
+
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+
+        mask-position: center;
+        -webkit-mask-position: center;
+
+
+        z-index: 2;
+
+
+
+        .greenScreen {
+            width: 100%;
+            height: 100vh;
+            background-color: var(--accent);
+            opacity: 0;
+            z-index: 90;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .mask-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+
+
+    .content-mask {
+        position: absolute;
+        inset: 0;
+        z-index: 999;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        pointer-events: none;
+    }
+
+    .logo-on-mask {
+        width: 200px;
+        flex-shrink: 0;
+    }
+
+    .title-on-mask {
+        font-size: clamp(1.5rem, 14vw, 10rem);
+        line-height: 1;
+        white-space: nowrap;
+        color: white;
+    }
+
+    .logo-on-mask,
+    .title-on-mask {
+        position: relative;
+        z-index: 101;
+    }
+}

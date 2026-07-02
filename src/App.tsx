@@ -8,6 +8,8 @@ import { useEffect, useRef } from "react";
 
 import Lenis from "lenis";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 import SplitType from "split-type";
 import "./App.scss";
 import BannerTechnologies from "./components/banner-technologies/banner-technologies";
@@ -16,39 +18,20 @@ import EnrollmentForm from "./components/enrollment-form/enrollment-form";
 import { EnrollmentSection } from "./components/enrollment-section/enrollment-section";
 import { Image } from "./components/Image/image";
 import Logo from "./components/Logo";
+import SetupMaskSection from "./components/setup-mask-section";
 import { TechCard } from "./components/tech-card/tech-card";
 import { Button } from "./components/ui/Button/Button";
 import Header from "./components/ui/Header";
-
+import { techs } from "./constants/techs";
 gsap.registerPlugin(ScrollTrigger);
-const techs = [
-  {
-    title: "HTML",
-    description:
-      "Aprende a estrutura fundamental da web com HTML semântico, acessibilidade e boas práticas para construir bases sólidas em qualquer projeto frontend moderno.",
-  },
-  {
-    title: "CSS",
-    description:
-      "Domina estilização avançada com CSS moderno, incluindo Flexbox, Grid, animações, responsividade e criação de interfaces altamente profissionais.",
-  },
-  {
-    title: "JavaScript",
-    description:
-      "Entende a linguagem que dá vida à web, explorando DOM, eventos, funções modernas, async/await e manipulação dinâmica de dados.",
-  },
-  {
-    title: "React",
-    description:
-      "Constrói interfaces modernas e escaláveis com React, componentes reutilizáveis, hooks, estado e arquitetura frontend profissional.",
-  },
-  {
-    title: "GSAP",
-    description:
-      "Cria animações de alto nível com GSAP, incluindo scroll animations, timelines, interações avançadas e experiências visuais cinematográficas.",
-  },
-];
+
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
   const scopeRef = useRef(null);
 
   useGSAP(
@@ -158,6 +141,8 @@ function App() {
     gsap.ticker.add(ticker);
     gsap.ticker.lagSmoothing(0);
 
+    ScrollTrigger.refresh();
+
     return () => {
       lenis.destroy();
       gsap.ticker.remove(ticker);
@@ -165,102 +150,106 @@ function App() {
   }, []);
 
   return (
-    <div ref={scopeRef}>
-      <section id="hero">
-        <Header />
-        <div className="hero-date-session">
-          <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
-          <Image src="/logo.svg" alt="logo"></Image>
-        </div>
+    <div>
+      <div ref={scopeRef}>
+        <section id="hero">
+          <Header />
+          <div className="hero-date-session">
+            <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
+            <Image src="/logo.svg" alt="logo"></Image>
+          </div>
 
-        <div className="hero-content-container">
-          <div className="container">
-            <div className="hero-content gsap-hero__box">
-              <h1 className="masterclass hero-line gsap-hero__title">
-                MASTERCLASS
-              </h1>
-              <h1 className="frontend hero-line gsap-hero__frontend">
-                FRONTEND
-              </h1>
-              <h1 className="development hero-line gsap-hero__title">
-                DEVELOPMENT
-              </h1>
+          <div className="hero-content-container">
+            <div className="container">
+              <div className="hero-content gsap-hero__box">
+                <h1 className="masterclass hero-line gsap-hero__title">
+                  MASTERCLASS
+                </h1>
+                <h1 className="frontend hero-line gsap-hero__frontend">
+                  FRONTEND
+                </h1>
+                <h1 className="development hero-line gsap-hero__title">
+                  DEVELOPMENT
+                </h1>
+              </div>
+              <div className="call-actions">
+                <Button
+                  leftElement={
+                    <HugeiconsIcon
+                      icon={ArrowUpRight03Icon}
+                      size={24}
+                      color="currentColor"
+                      strokeWidth={1.5}
+                    />
+                  }
+                >
+                  Explorar conteúdo
+                </Button>
+                <Button variant="secondary">Garanta sua vaga</Button>
+              </div>
+              <div className="google-meet-section">
+                <Image src="/google-meet-logo.png"></Image>
+                <span>GOOGLE MEET</span>
+              </div>
             </div>
-            <div className="call-actions">
-              <Button
-                leftElement={
+          </div>
+          <div className="image-and-illustrations">
+            <Image className="logo-image" src="/logo.svg"></Image>
+            <Image
+              className="hero-girl-image gsap-hero__image"
+              src="/hero-girl.png"
+            ></Image>
+
+            <div className="price-card">
+              <div className="content-frontend-text">
+                <Image src="/logo.svg"></Image>
+                <p>DEV FRONTEND</p>
+              </div>
+              <p className="price">12.000kz</p>
+            </div>
+          </div>
+        </section>
+        <BannerTechnologies />
+        <section className="gsap-full-section">
+          <div className="gsap-content">
+            <div className="container">
+              <h2 className="section-title gsap-content__title">
+                O QUE IRÁ APRENDER
+              </h2>
+              <p className="section-description  gsap-content__text">
+                Aprenda através da prática, construindo projetos reais enquanto
+                desenvolve competências em HTML, CSS, JavaScript, design
+                responsivo, ferramentas modernas e boas práticas de
+                desenvolvimento.
+              </p>
+            </div>
+          </div>
+
+          <div className="gsap-tech-track">
+            {techs.map((tech, index) => (
+              <TechCard
+                key={index}
+                title={tech.title}
+                description={tech.description}
+                icon={
                   <HugeiconsIcon
                     icon={ArrowUpRight03Icon}
-                    size={24}
+                    size={20}
                     color="currentColor"
-                    strokeWidth={1.5}
                   />
                 }
-              >
-                Explorar conteúdo
-              </Button>
-              <Button variant="secondary">Garanta sua vaga</Button>
-            </div>
-            <div className="google-meet-section">
-              <Image src="/google-meet-logo.png"></Image>
-              <span>GOOGLE MEET</span>
-            </div>
+              />
+            ))}
           </div>
-        </div>
-        <div className="image-and-illustrations">
-          <Image className="logo-image" src="/logo.svg"></Image>
-          <Image
-            className="hero-girl-image gsap-hero__image"
-            src="/hero-girl.png"
-          ></Image>
+        </section>
+      </div>
 
-          <div className="price-card">
-            <div className="content-frontend-text">
-              <Image src="/logo.svg"></Image>
-              <p>DEV FRONTEND</p>
-            </div>
-            <p className="price">12.000kz</p>
-          </div>
-        </div>
-      </section>
-      <BannerTechnologies />
-      <section className="gsap-full-section">
-        <div className="gsap-content">
-          <div className="container">
-            <h2 className="section-title gsap-content__title">
-              O QUE IRÁ APRENDER
-            </h2>
-            <p className="section-description  gsap-content__text">
-              Aprenda através da prática, construindo projetos reais enquanto
-              desenvolve competências em HTML, CSS, JavaScript, design
-              responsivo, ferramentas modernas e boas práticas de
-              desenvolvimento.
-            </p>
-          </div>
-        </div>
-
-        <div className="gsap-tech-track">
-          {techs.map((tech, index) => (
-            <TechCard
-              key={index}
-              title={tech.title}
-              description={tech.description}
-              icon={
-                <HugeiconsIcon
-                  icon={ArrowUpRight03Icon}
-                  size={20}
-                  color="currentColor"
-                />
-              }
-            />
-          ))}
-        </div>
-      </section>
       <CourseJourney />
 
-      <section className="section"></section>
+      <SetupMaskSection></SetupMaskSection>
       <EnrollmentSection />
       <EnrollmentForm />
+
       <footer className="footer">
         <div className="footer-info">
           <Logo></Logo>

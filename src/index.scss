@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+
 * {
   margin: 0%;
   padding: 0%;
@@ -20,7 +21,7 @@
   --border: #DEDEE6;
   --accent: #22FB66;
   --accent-bg: #22FB66;
-
+  --purple: #9700FF;
   --sans: 'Inter', system-ui, Roboto, sans-serif;
   --heading: 'Inter', system-ui, Roboto, sans-serif;
 
@@ -48,6 +49,7 @@
 
 body {
   margin: 0;
+  cursor: var(--cursor-default);
 }
 
 h1,

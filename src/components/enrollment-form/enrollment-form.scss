@@ -1,56 +1,86 @@
 .enrollment-form-section {
     padding-block: 8rem;
+    text-align: center;
 
     .section-title {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .section-description {
-        max-width: 700px;
-        font-size: 1.25rem;
-        margin-bottom: 4rem;
+
+        margin: 0 auto 4rem;
+        font-size: 1.1rem;
+        text-align: start;
     }
 }
 
-.enrollment-form {
-    display: flex;
-    flex-direction: column;
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 700px;
+    margin-bottom: 4rem;
+}
+
+.step-card {
+    padding: 2rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    text-align: left;
+    transition: .3s;
+
+    &:hover {
+        border-color: var(--purple);
+        transform: rotate(-10deg);
+        background: var(--purple);
+
+        .step-number {
+            background-color: white;
+            border-color: var(--bg);
+            color: var(--bg);
+        }
+    }
+
+    h3 {
+        margin: 1rem 0;
+        font-size: 12px;
+        padding: 0.5rem;
+        border-bottom: 2px solid var(--purple);
+    }
+
+    p {
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    .step-number {}
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+
+    border: 2px solid var(--border);
+
+
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.submit-button {
     margin: auto;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
-
-    label {
-        font-weight: 600;
-
+@media (max-width: 900px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
     }
 
-    input,
-    select,
-    textarea {
-        width: 100%;
-        padding: 1rem;
-        background: transparent;
-        border: 2px solid var(--border);
-        color: var(--foreground);
-        font-size: 1rem;
-        outline: none;
-        transition: .3s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-        border-color: var(--accent);
-    }
-
-    textarea {
-        resize: vertical;
-        min-height: 180px;
+    .step-card {
+        text-align: center;
     }
 }
