@@ -221,8 +221,8 @@ function App() {
 
   return (
     <>
-      <div className="page-content">
-        <div ref={scopeRef}>
+      <div className="page-content" ref={scopeRef}>
+        <div>
           <section id="hero">
             <Header />
             <div className="hero-date-session">
@@ -317,7 +317,7 @@ function App() {
 
         <CourseJourney />
 
-        <section ref={scopeRef} className="mask-section">
+        <section className="mask-section">
           <div className="mask-container #Container">
             <div className="mask-image-container #Hero">
               <Image src="/mask-background.png" className="mask-image" />
