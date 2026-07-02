@@ -1,4 +1,5 @@
 import {
+  ArrowUp01Icon,
   Cancel01Icon,
   Clock01Icon,
   Menu01Icon,
@@ -14,7 +15,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const { days, hours, minutes, seconds } = useCountdown("2026-09-30T00:00:00");
+  const { days, hours, minutes, seconds } = useCountdown("2026-07-10T00:00:00");
+
+  const targetDate = new Date("2026-07-10T00:00:00").getTime();
+  const now = new Date().getTime();
+  const isExpired = now >= targetDate;
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -36,6 +41,7 @@ export default function Header() {
   }, []);
   return (
     <header>
+      <BackToTopButton />
       <div className="container">
         <Logo></Logo>
         <menu ref={menuRef} className={isMenuOpen ? "open" : ""}>
@@ -61,19 +67,21 @@ export default function Header() {
         </menu>
 
         <div className="header-actions">
-          <Button
-            className="timer-button"
-            variant="primary"
-            leftElement={
-              <HugeiconsIcon
-                icon={Clock01Icon}
-                size={24}
-                color="currentColor"
-              />
-            }
-          >
-            <span>{`${days}:${hours}:${minutes}:${seconds}`}</span>
-          </Button>
+          {!isExpired && (
+            <Button
+              className="timer-button"
+              variant="primary"
+              leftElement={
+                <HugeiconsIcon
+                  icon={Clock01Icon}
+                  size={24}
+                  color="currentColor"
+                />
+              }
+            >
+              <span>{`${days}:${hours}:${minutes}:${seconds}`}</span>
+            </Button>
+          )}
 
           <button
             ref={buttonRef}
@@ -88,5 +96,34 @@ export default function Header() {
         </div>
       </div>
     </header>
+  );
+}
+export function BackToTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <Button
+      leftElement={<HugeiconsIcon icon={ArrowUp01Icon} size={20} />}
+      className={`back-to-top ${visible ? "show" : ""}`}
+      onClick={scrollToTop}
+    >
+      <span>Back to top</span>
+    </Button>
   );
 }

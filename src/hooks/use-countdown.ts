@@ -1,16 +1,37 @@
 import { useEffect, useState } from "react";
 
 export function useCountdown(targetDate: string) {
-  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDate));
+  const [timeLeft, setTimeLeft] = useState(() =>
+    formatTime(calculateTimeLeft(targetDate)),
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(targetDate));
+      setTimeLeft(formatTime(calculateTimeLeft(targetDate)));
     }, 1000);
+
     return () => clearInterval(interval);
   }, [targetDate]);
 
   return timeLeft;
+}
+
+function formatTime(time: {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}) {
+  return {
+    days: pad(time.days),
+    hours: pad(time.hours),
+    minutes: pad(time.minutes),
+    seconds: pad(time.seconds),
+  };
+}
+
+function pad(value: number) {
+  return String(value).padStart(2, "0");
 }
 
 function calculateTimeLeft(targetDate: string) {

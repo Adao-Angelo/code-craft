@@ -228,7 +228,7 @@ function App() {
             <Header />
             <div className="container">
               <div className="hero-date-session">
-                <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
+                <span>A primeira sessão começa no dia 10 de Julho, 2026</span>
                 <Image src="/logo.svg" alt="logo"></Image>
               </div>
             </div>
@@ -247,19 +247,23 @@ function App() {
                   </h1>
                 </div>
                 <div className="call-actions">
-                  <Button
-                    leftElement={
-                      <HugeiconsIcon
-                        icon={ArrowUpRight03Icon}
-                        size={24}
-                        color="currentColor"
-                        strokeWidth={1.5}
-                      />
-                    }
-                  >
-                    Explorar conteúdo
-                  </Button>
-                  <Button variant="secondary">Garanta sua vaga</Button>
+                  <a href="#content-section">
+                    <Button
+                      leftElement={
+                        <HugeiconsIcon
+                          icon={ArrowUpRight03Icon}
+                          size={24}
+                          color="currentColor"
+                          strokeWidth={1.5}
+                        />
+                      }
+                    >
+                      Explorar conteúdo
+                    </Button>
+                  </a>
+                  <a href="#price-section">
+                    <Button variant="secondary">Garanta sua vaga</Button>
+                  </a>
                 </div>
                 <div className="google-meet-section">
                   <Image src="/google-meet-logo.png"></Image>
@@ -358,6 +362,9 @@ function App() {
             <div className="footer-google-meet-section">
               <Image src="/google-meet-logo.png" />
               <span>GOOGLE MEET</span>
+            </div>
+            <div className="footer-google-meet-section">
+              <span>947 636 149</span>
             </div>
             <Image className="float-box" src="/start.svg" />
           </div>

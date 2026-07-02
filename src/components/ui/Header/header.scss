@@ -72,15 +72,9 @@
           display: none;
       }
 
-      menu li {
-          opacity: 0;
-          transform: translateY(-12px);
-          transition: .35s ease;
-      }
 
       menu.open li {
           opacity: 1;
-
       }
 
 
@@ -161,4 +155,11 @@
               display: none;
           }
       }
+  }
+
+
+  .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
   }

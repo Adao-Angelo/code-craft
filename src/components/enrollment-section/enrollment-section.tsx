@@ -6,6 +6,7 @@ import {
   TimeQuarter02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import FloatLogo from "../ui/Float-logo";
 
 const courseInfo = [
   {
@@ -28,6 +29,7 @@ const courseInfo = [
 export function EnrollmentSection() {
   return (
     <section className="enrollment-section">
+      <FloatLogo></FloatLogo>
       <div>
         <div className="container">
           <h2 className="section-title enrollment-title">
