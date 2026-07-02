@@ -33,10 +33,10 @@ export default function SetupMaskSection() {
         scrollTrigger: {
           trigger: ".mask-container",
           start: "top -20%+=200",
-          end: "+=100%",
+          end: "+=200%",
           scrub: 1,
           pin: ".mask-image-container",
-          anticipatePin: 0,
+          anticipatePin: 1,
         },
       });
 

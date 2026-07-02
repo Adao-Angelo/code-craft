@@ -18,9 +18,9 @@ import EnrollmentForm from "./components/enrollment-form/enrollment-form";
 import { EnrollmentSection } from "./components/enrollment-section/enrollment-section";
 import { Image } from "./components/Image/image";
 import Logo from "./components/Logo";
-import SetupMaskSection from "./components/setup-mask-section";
 import { TechCard } from "./components/tech-card/tech-card";
 import { Button } from "./components/ui/Button/Button";
+import GridPattern from "./components/ui/GridPattern/GridPattern";
 import Header from "./components/ui/Header";
 import { techs } from "./constants/techs";
 gsap.registerPlugin(ScrollTrigger);
@@ -127,6 +127,76 @@ function App() {
     { scope: scopeRef },
   );
 
+  useGSAP(
+    () => {
+      gsap.set(".mask-image-container", {
+        maskSize: "99vw",
+        webkitMaskSize: "99vw",
+      });
+
+      gsap.set(".greenScreen", {
+        opacity: 0,
+      });
+
+      gsap.set(".logo-on-mask", {
+        x: 0,
+        rotation: 0,
+      });
+
+      gsap.set(".title-on-mask", {
+        opacity: 0,
+        x: 120,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".mask-container",
+          start: "top -20%+=200",
+          end: "+=200%",
+          scrub: 1,
+          pin: ".mask-image-container",
+          anticipatePin: 1,
+        },
+      });
+
+      tl.to(".mask-image-container", {
+        maskSize: "12vw",
+        webkitMaskSize: "12vw",
+        ease: "none",
+      })
+        .to(".greenScreen", {
+          opacity: 1,
+          ease: "none",
+        })
+        .to({}, { duration: 0.2 })
+        .to(".mask-image-container", {
+          opacity: 0,
+          duration: 0.8,
+        })
+        .to(".logo-on-mask", {
+          x: -170,
+          rotation: 360,
+          duration: 1.2,
+          ease: "power3.inOut",
+        })
+        .fromTo(
+          ".title-on-mask",
+          {
+            x: 80,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+          },
+          "<",
+        );
+    },
+    { scope: scopeRef },
+  );
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -150,122 +220,152 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div ref={scopeRef}>
-        <section id="hero">
-          <Header />
-          <div className="hero-date-session">
-            <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
-            <Image src="/logo.svg" alt="logo"></Image>
-          </div>
+    <>
+      <div className="page-content">
+        <div ref={scopeRef}>
+          <section id="hero">
+            <Header />
+            <div className="hero-date-session">
+              <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
+              <Image src="/logo.svg" alt="logo"></Image>
+            </div>
 
-          <div className="hero-content-container">
-            <div className="container">
-              <div className="hero-content gsap-hero__box">
-                <h1 className="masterclass hero-line gsap-hero__title">
-                  MASTERCLASS
-                </h1>
-                <h1 className="frontend hero-line gsap-hero__frontend">
-                  FRONTEND
-                </h1>
-                <h1 className="development hero-line gsap-hero__title">
-                  DEVELOPMENT
-                </h1>
+            <div className="hero-content-container">
+              <div className="container">
+                <div className="hero-content gsap-hero__box">
+                  <h1 className="masterclass hero-line gsap-hero__title">
+                    MASTERCLASS
+                  </h1>
+                  <h1 className="frontend hero-line gsap-hero__frontend">
+                    FRONTEND
+                  </h1>
+                  <h1 className="development hero-line gsap-hero__title">
+                    DEVELOPMENT
+                  </h1>
+                </div>
+                <div className="call-actions">
+                  <Button
+                    leftElement={
+                      <HugeiconsIcon
+                        icon={ArrowUpRight03Icon}
+                        size={24}
+                        color="currentColor"
+                        strokeWidth={1.5}
+                      />
+                    }
+                  >
+                    Explorar conteúdo
+                  </Button>
+                  <Button variant="secondary">Garanta sua vaga</Button>
+                </div>
+                <div className="google-meet-section">
+                  <Image src="/google-meet-logo.png"></Image>
+                  <span>GOOGLE MEET</span>
+                </div>
               </div>
-              <div className="call-actions">
-                <Button
-                  leftElement={
+            </div>
+            <div className="image-and-illustrations">
+              <Image className="logo-image" src="/logo.svg"></Image>
+              <Image
+                className="hero-girl-image gsap-hero__image"
+                src="/hero-girl.png"
+              ></Image>
+
+              <div className="price-card">
+                <div className="content-frontend-text">
+                  <Image src="/logo.svg"></Image>
+                  <p>DEV FRONTEND</p>
+                </div>
+                <p className="price">12.000kz</p>
+              </div>
+            </div>
+          </section>
+          <BannerTechnologies />
+          <section className="gsap-full-section">
+            <div className="gsap-content">
+              <div className="container">
+                <h2 className="section-title gsap-content__title">
+                  O QUE IRÁ APRENDER
+                </h2>
+                <p className="section-description  gsap-content__text">
+                  Aprenda através da prática, construindo projetos reais
+                  enquanto desenvolve competências em HTML, CSS, JavaScript,
+                  design responsivo, ferramentas modernas e boas práticas de
+                  desenvolvimento.
+                </p>
+              </div>
+            </div>
+
+            <div className="gsap-tech-track">
+              {techs.map((tech, index) => (
+                <TechCard
+                  key={index}
+                  title={tech.title}
+                  description={tech.description}
+                  icon={
                     <HugeiconsIcon
                       icon={ArrowUpRight03Icon}
-                      size={24}
+                      size={20}
                       color="currentColor"
-                      strokeWidth={1.5}
                     />
                   }
-                >
-                  Explorar conteúdo
-                </Button>
-                <Button variant="secondary">Garanta sua vaga</Button>
-              </div>
-              <div className="google-meet-section">
-                <Image src="/google-meet-logo.png"></Image>
-                <span>GOOGLE MEET</span>
-              </div>
+                />
+              ))}
             </div>
-          </div>
-          <div className="image-and-illustrations">
-            <Image className="logo-image" src="/logo.svg"></Image>
-            <Image
-              className="hero-girl-image gsap-hero__image"
-              src="/hero-girl.png"
-            ></Image>
+          </section>
+        </div>
 
-            <div className="price-card">
-              <div className="content-frontend-text">
-                <Image src="/logo.svg"></Image>
-                <p>DEV FRONTEND</p>
-              </div>
-              <p className="price">12.000kz</p>
+        <CourseJourney />
+
+        <section ref={scopeRef} className="mask-section">
+          <div className="mask-container #Container">
+            <div className="mask-image-container #Hero">
+              <Image src="/mask-background.png" className="mask-image" />
+
+              <div className="greenScreen"></div>
+            </div>
+            <div className="content-mask">
+              <Image src="/logo.svg" className="logo-on-mask" />
+              <h1 className="title-on-mask">Code Craft</h1>
             </div>
           </div>
         </section>
-        <BannerTechnologies />
-        <section className="gsap-full-section">
-          <div className="gsap-content">
-            <div className="container">
-              <h2 className="section-title gsap-content__title">
-                O QUE IRÁ APRENDER
-              </h2>
-              <p className="section-description  gsap-content__text">
-                Aprenda através da prática, construindo projetos reais enquanto
-                desenvolve competências em HTML, CSS, JavaScript, design
-                responsivo, ferramentas modernas e boas práticas de
-                desenvolvimento.
-              </p>
-            </div>
-          </div>
-
-          <div className="gsap-tech-track">
-            {techs.map((tech, index) => (
-              <TechCard
-                key={index}
-                title={tech.title}
-                description={tech.description}
-                icon={
-                  <HugeiconsIcon
-                    icon={ArrowUpRight03Icon}
-                    size={20}
-                    color="currentColor"
-                  />
-                }
-              />
-            ))}
-          </div>
-        </section>
+        <EnrollmentSection />
+        <EnrollmentForm />
       </div>
 
-      <CourseJourney />
-
-      <SetupMaskSection></SetupMaskSection>
-      <EnrollmentSection />
-      <EnrollmentForm />
+      <div className="footer-spacer" />
 
       <footer className="footer">
-        <div className="footer-info">
-          <Logo></Logo>
-          <div className="footer-google-meet-section">
-            <Image src="/google-meet-logo.png"></Image>
-            <span>GOOGLE MEET</span>
-          </div>
-          <Image className="float-box" src="/start.svg"></Image>
+        <div className="footer-grid-bg">
+          <GridPattern
+            width={40}
+            height={40}
+            squares={[
+              [1, 1],
+              [3, 2],
+              [5, 4],
+            ]}
+          />
         </div>
 
-        <div className="footer-code-area">
-          <Image src="/logo.svg"></Image>
-          <span>Code Craft</span>
+        <div className="footer-content">
+          <div className="footer-info">
+            <Logo />
+            <div className="footer-google-meet-section">
+              <Image src="/google-meet-logo.png" />
+              <span>GOOGLE MEET</span>
+            </div>
+            <Image className="float-box" src="/start.svg" />
+          </div>
+
+          <div className="footer-code-area">
+            <Image src="/logo.svg" />
+            <span>Code Craft</span>
+          </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 
