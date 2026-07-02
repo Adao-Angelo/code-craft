@@ -186,12 +186,9 @@
   position: relative;
   z-index: 2;
   background: var(--bg);
-
+  border-bottom: 1px solid var(--border);
+  box-shadow: 1px 0px 200px 0px rgba(255, 255, 255, 0.277);
 }
-
-
-
-
 
 .mask-section {
   .mask-container {
@@ -291,6 +288,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
 
   background: var(--bg);
   overflow: hidden;
