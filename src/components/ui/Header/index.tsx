@@ -36,6 +36,7 @@ export default function Header() {
 
         <div className="header-actions">
           <Button
+            className="timer-button"
             variant="primary"
             leftElement={
               <HugeiconsIcon

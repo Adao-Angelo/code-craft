@@ -174,7 +174,7 @@ function App() {
           duration: 0.8,
         })
         .to(".logo-on-mask", {
-          x: -170,
+          y: 70,
           rotation: 360,
           duration: 1.2,
           ease: "power3.inOut",
@@ -225,9 +225,11 @@ function App() {
         <div>
           <section id="hero">
             <Header />
-            <div className="hero-date-session">
-              <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
-              <Image src="/logo.svg" alt="logo"></Image>
+            <div className="container">
+              <div className="hero-date-session">
+                <span>A primeira sessão começa no dia 30 de Junho, 2026</span>
+                <Image src="/logo.svg" alt="logo"></Image>
+              </div>
             </div>
 
             <div className="hero-content-container">
@@ -276,7 +278,7 @@ function App() {
                   <Image src="/logo.svg"></Image>
                   <p>DEV FRONTEND</p>
                 </div>
-                <p className="price">12.000kz</p>
+                <p className="price">15.000kz</p>
               </div>
             </div>
           </section>
@@ -320,7 +322,7 @@ function App() {
         <section className="mask-section">
           <div className="mask-container #Container">
             <div className="mask-image-container #Hero">
-              <Image src="/mask-background.png" className="mask-image" />
+              <Image src="/mask.png" className="mask-image" />
 
               <div className="greenScreen"></div>
             </div>

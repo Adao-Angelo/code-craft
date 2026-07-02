@@ -15,6 +15,11 @@
     margin-top: 7.125rem;
 
 
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: small;
+    }
+
 
     img {
       width: 1.25rem;
@@ -37,6 +42,10 @@
         .masterclass {
           font-size: 5rem;
           font-weight: 600;
+
+          @media (max-width: 768px) {
+            font-size: 2.5rem;
+          }
         }
 
         .frontend {
@@ -46,11 +55,19 @@
           color: var(--accent);
           width: fit-content;
           padding: 0.5rem;
+
+          @media (max-width: 768px) {
+            font-size: 3rem;
+          }
         }
 
         .development {
           font-size: 6rem;
           font-weight: 800;
+
+          @media (max-width: 768px) {
+            font-size: 2.5rem;
+          }
 
         }
       }
@@ -60,6 +77,18 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
+
+        @media (max-width: 768px) {
+          margin-top: 3.125rem;
+          flex-direction: column;
+        }
+
+        button {
+          @media (max-width: 768px) {
+            width: 100%;
+          }
+
+        }
       }
 
       .google-meet-section {
@@ -87,6 +116,10 @@
     right: 0;
     height: 100vh;
     width: 100%;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
 
 
 
@@ -158,7 +191,7 @@
 }
 
 .section-description {
-  font-size: clamp(0.75rem, 8vw, 50px);
+  font-size: clamp(0.75rem, 6vw, 50px);
   line-height: 1.4;
   font-weight: 400;
 }
@@ -204,8 +237,8 @@
     overflow: hidden;
 
 
-    mask-image: url("/logo.svg");
-    -webkit-mask-image: url("/logo.svg");
+    mask-image: url("/mask.svg");
+    -webkit-mask-image: url("/mask.svg");
 
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
@@ -232,7 +265,7 @@
     .mask-image {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
     }
   }
@@ -250,6 +283,11 @@
     gap: 24px;
 
     pointer-events: none;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10rem;
+    }
   }
 
   .logo-on-mask {
