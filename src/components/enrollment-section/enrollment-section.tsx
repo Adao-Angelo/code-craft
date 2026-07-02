@@ -36,7 +36,7 @@ export function EnrollmentSection() {
         </div>
 
         <div className="price-container" data-aos="flip-left">
-          <h2 className="price">15.000 Kz</h2>
+          <h2 className="price">12.000 Kz</h2>
         </div>
 
         <div className="container">

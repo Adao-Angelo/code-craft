@@ -86,14 +86,15 @@ function App() {
         scrollTrigger: {
           trigger: ".gsap-full-section",
           start: "top top",
-          end: () => "+=" + window.innerHeight * 6,
+          end: () => "+=" + window.innerHeight * 4,
           pin: true,
           scrub: true,
         },
       });
 
       timeline.from(split.chars, {
-        opacity: 0.2,
+        y: 70,
+        opacity: 0,
         stagger: 0.05,
         direction: 1,
       });
@@ -151,7 +152,7 @@ function App() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".mask-container",
-          start: "top -20%+=200",
+          start: "top -28%+=200",
           end: "+=200%",
           scrub: 1,
           pin: ".mask-image-container",
@@ -278,12 +279,12 @@ function App() {
                   <Image src="/logo.svg"></Image>
                   <p>DEV FRONTEND</p>
                 </div>
-                <p className="price">15.000kz</p>
+                <p className="price">12.000kz</p>
               </div>
             </div>
           </section>
           <BannerTechnologies />
-          <section className="gsap-full-section">
+          <section id="content-section" className="gsap-full-section">
             <div className="gsap-content">
               <div className="container">
                 <h2 className="section-title gsap-content__title">
@@ -322,7 +323,7 @@ function App() {
         <section className="mask-section">
           <div className="mask-container #Container">
             <div className="mask-image-container #Hero">
-              <Image src="/mask.png" className="mask-image" />
+              <Image src="/mask-background.png" className="mask-image" />
 
               <div className="greenScreen"></div>
             </div>

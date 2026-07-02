@@ -29,7 +29,7 @@ const steps = [
 
 export default function EnrollmentForm() {
   return (
-    <section className="enrollment-form-section">
+    <section className="enrollment-form-section" id="price-section">
       <div className="container">
         <h2 className="section-title">GARANTA A SUA VAGA</h2>
         <p className="section-description">

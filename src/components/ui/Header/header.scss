@@ -72,34 +72,73 @@
           display: none;
       }
 
-      @media (max-width: 768px) {
+      menu li {
+          opacity: 0;
+          transform: translateY(-12px);
+          transition: .35s ease;
+      }
+
+      menu.open li {
+          opacity: 1;
+
+      }
+
+
+      @media (max-width:768px) {
 
           menu {
-              position: fixed;
-              inset: 0;
+              position: absolute;
+              top: calc(100% + 8px);
+              left: 0;
+              width: 100%;
+              padding: 0 0.75rem;
 
-              display: flex;
-              justify-content: center;
-              align-items: center;
+              ul {
+                  padding: 1rem;
+                  width: 100%;
+                  background: #0f011a;
+                  border: 1px solid var(--border);
+                  backdrop-filter: blur(12px);
+              }
 
-              background: var(--bg);
+              overflow: hidden;
 
-              transform: translateY(-100%);
+              max-height: 0;
+
               opacity: 0;
-              visibility: hidden;
-              pointer-events: none;
 
-              transition:
-                  transform .45s ease,
-                  opacity .45s ease,
-                  visibility .45s;
+              visibility: hidden;
+
+              transition: max-height .45s ease,
+              opacity .35s ease,
+              visibility .35s;
           }
 
           menu.open {
-              transform: translateY(0);
+              max-height: 320px;
               opacity: 1;
               visibility: visible;
-              pointer-events: auto;
+          }
+
+          menu ul {
+              display: flex;
+              flex-direction: column;
+          }
+
+          menu li {
+              list-style: none;
+          }
+
+          menu a {
+              display: block;
+              font-size: 1rem;
+              font-weight: 600;
+              width: 100%;
+              color: var(--accent);
+          }
+
+          menu a:hover {
+              background: #ffffff0d;
           }
 
           .menu-button {
@@ -111,67 +150,15 @@
               align-items: center;
 
               background: transparent;
-              color: white;
-
               border: 1px solid white;
-
-
+              color: white;
               cursor: pointer;
-          }
 
-          menu.open {
-              position: fixed;
-              inset: 0;
-
-              display: flex;
-
-              justify-content: center;
-              align-items: center;
-
-              background: var(--bg);
-              z-index: 999;
-          }
-
-
-
-          menu.open ul {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-
-              gap: 2.5rem;
-          }
-
-          menu.open li {
-              list-style: none;
-          }
-
-          menu.open a {
-              font-size: 2rem;
-              font-weight: 700;
+              transition: .3s;
           }
 
           .close-menu {
-              position: absolute;
-
-              top: 2rem;
-              right: 2rem;
-
-              width: 48px;
-              height: 48px;
-
-              display: flex;
-              justify-content: center;
-              align-items: center;
-
-              background: transparent;
-
-              color: white;
-
-              border: 1px solid white;
-
-
-              cursor: pointer;
+              display: none;
           }
       }
   }

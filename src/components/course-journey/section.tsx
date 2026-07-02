@@ -11,7 +11,11 @@ export default function CourseJourney() {
   const scopeRef = useRef(null);
 
   return (
-    <section ref={scopeRef} className="section section-your-journey">
+    <section
+      id="schedule-section"
+      ref={scopeRef}
+      className="section section-your-journey"
+    >
       <div className="container">
         <h2 className="section-title your-journey-title gsap-journey-title">
           SUA JORNADA EM 8 SEMANAS
