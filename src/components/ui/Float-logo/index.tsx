@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import "./CustomCursor.scss";
+import Logo from "../../Logo";
 
-export default function CustomCursor() {
+export default function FloatLogo() {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,9 +18,8 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="cursor-wrapper">
-      {/* <Image src="/cursor.svg" className="" /> */}
-      <span className="cursor-label">Let’s gooooooooo</span>
+    <div ref={wrapperRef} className="float-logo">
+      <Logo></Logo>
     </div>
   );
 }

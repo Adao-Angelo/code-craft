@@ -26,6 +26,9 @@
 
   --gradient-primary: linear-gradient(40deg, #0F011A 0%, #390260 60%, #8800E6 100%);
 
+
+  --cursor-default: url("/cursor.svg"), auto;
+
   font: 16px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;

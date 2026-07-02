@@ -1,0 +1,65 @@
+.enrollment-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    .section-tile {
+        width: fit-content;
+        color: var(--accent);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 12px;
+        margin-bottom: 4rem;
+    }
+
+    .price-container {
+        max-width: 93.75rem;
+        padding: 2.5rem;
+        margin: auto;
+        text-align: center;
+    }
+
+    .price {
+        font-size: clamp(4rem, 20vw, 18.75rem);
+        line-height: 1;
+        font-weight: 800;
+        color: var(--accent);
+        margin-bottom: 6rem;
+    }
+
+    .course-details {
+        display: flex;
+        gap: 1.9rem;
+        flex-wrap: wrap;
+    }
+
+    .detail-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            background: var(--accent);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #000;
+            font-size: 1.5rem;
+        }
+
+        span {
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+.journey-card {
+    width: 360px;
+    flex-shrink: 0;
+    background: #260240;
+
+
+
+    &__header {
+        background: var(--accent);
+        padding: 0.75rem;
+        color: var(--bg);
+    }
+
+    &__badge {
+        border: 2px solid var(--bg);
+        width: fit-content;
+
+        padding: 0.75rem 0.75rem;
+
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+
+
+        p {
+            font-weight: 600;
+            color: var(--bg);
+        }
+
+        span {
+            font-size: 2rem;
+        }
+    }
+
+    &__content {
+
+        padding: 1.5rem;
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        height: 2px;
+        background: var(--accent);
+        margin-bottom: 1rem;
+    }
+
+    &__description {
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+    }
+
+    ul {
+        list-style: none;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        span {
+            font-size: 1rem;
+        }
+    }
+
+    .check {
+        width: 32px;
+        height: 32px;
+
+        background: var(--accent-color);
+        color: var(--bg);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: bold;
+    }
+}

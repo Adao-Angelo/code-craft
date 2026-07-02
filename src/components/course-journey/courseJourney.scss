@@ -1,0 +1,32 @@
+.section-your-journey {
+    position: relative;
+
+    .section-title.your-journey-title {
+        margin-bottom: 2rem;
+    }
+
+    .your-journey-description {
+        font-size: 32px;
+        line-height: 1.4;
+
+    }
+
+    .journey-cards {
+        margin-top: 6rem;
+        display: flex;
+        gap: 2rem;
+
+        position: relative;
+    }
+
+    .journey-card {
+        transition:
+            transform .4s ease,
+            box-shadow .4s ease;
+
+        &:hover {
+            transform: rotate(10deg);
+
+        }
+    }
+}

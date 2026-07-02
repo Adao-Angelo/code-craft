@@ -2,6 +2,7 @@
   background: var(--gradient-primary);
   min-height: 100vh;
   padding-top: 1.5rem;
+  cursor: var(--cursor-default);
 
   .hero-date-session {
     border: 1px solid var(--border);
@@ -10,6 +11,7 @@
     margin: 3.125rem auto;
     display: flex;
     gap: 0.75rem;
+    margin-top: 7.125rem;
 
     img {
       width: 1.25rem;
@@ -140,20 +142,142 @@
 
 .section {
   min-height: 100vh;
+}
 
-  .section-title {
-    padding: 12px;
-    border-bottom: 2px solid var(--accent);
-    color: var(--accent);
-    width: fit-content;
-    margin-top: 7.25rem;
-    margin-bottom: 7.25rem;
+.section-title {
+  padding: 12px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+  width: fit-content;
+  margin-top: 4rem;
+  margin-bottom: 7.25rem;
+}
+
+.section-description {
+  font-size: 50px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.gsap-full-section {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gsap-tech-track {
+  display: flex;
+  width: max-content;
+  gap: 2rem;
+  padding-top: 4.25rem;
+  margin-top: 9rem;
+  position: absolute;
+  left: 0;
+}
+
+
+.footer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5rem;
+    gap: 1rem;
+
+    .footer-google-meet-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: bold;
+
+      img {
+        width: 50px;
+      }
+    }
   }
 
-  .section-description {
-    font-size: 50px;
-    line-height: 1.4;
-    font-weight: 400;
+  .footer-code-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+
+    img {
+      width: 250px;
+    }
+
+    span {
+      font-size: clamp(3rem, 12vw, 20rem);
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    .footer-info {
+      padding: 2rem;
+    }
+
+    .footer-code-area {
+      gap: 1.5rem;
+
+      img {
+        width: 150px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer {
+    .footer-info {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+    }
+
+    .footer-code-area {
+
+      gap: 1rem;
+      margin-top: 2rem;
+
+      img {
+        width: 90px;
+      }
+
+      span {
+        text-align: center;
+        font-size: clamp(1.5rem, 14vw, 5rem);
+      }
+    }
+  }
+}
+
+@keyframes float-soft {
+
+  0%,
+  100% {
+    transform: translateY(30);
   }
 
+  50% {
+    transform: translateY(-10px);
+    transform: rotate(10deg);
+  }
+}
+
+.float-box {
+  animation: float-soft 1.4s ease-out infinite;
 }

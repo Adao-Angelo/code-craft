@@ -3,9 +3,12 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Logo from "../../Logo";
 import { Button } from "../Button/Button";
 
+import { useCountdown } from "../../../hooks/use-countdown";
 import "./header.scss";
 
 export default function Header() {
+  const { days, hours, minutes, seconds } = useCountdown("2026-09-30T00:00:00");
+
   return (
     <header>
       <div className="container">
@@ -35,7 +38,7 @@ export default function Header() {
               />
             }
           >
-            {"01:01:42:00"}
+            <span>{`${days}:${hours}:${minutes}:${seconds}`}</span>
           </Button>
         </div>
       </div>

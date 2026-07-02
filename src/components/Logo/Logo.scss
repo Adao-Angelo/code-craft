@@ -1,0 +1,30 @@
+  .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+
+      img {
+          width: 2.875rem;
+      }
+
+      span {
+          font-size: 1.5rem;
+          font-weight: 500;
+      }
+  }
+
+  .float-logo {
+      border: 2px solid var(--accent);
+      width: fit-content;
+      padding: 0.75rem;
+      position: absolute;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+      pointer-events: none;
+      align-items: center;
+      transition: 0.3s;
+      transition-timing-function: ease-out;
+  }

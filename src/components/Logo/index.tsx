@@ -1,4 +1,5 @@
 import { Image } from "../Image/image";
+import "./Logo.scss";
 
 export default function Logo() {
   return (
