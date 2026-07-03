@@ -27,4 +27,8 @@
       align-items: center;
       transition: 0.3s;
       transition-timing-function: ease-out;
+
+      @media (max-width: 768px) {
+          display: none;
+      }
   }
