@@ -19,7 +19,6 @@ export default function CustomCursor() {
 
   return (
     <div ref={wrapperRef} className="cursor-wrapper">
-      {/* <Image src="/cursor.svg" className="" /> */}
       <span className="cursor-label">Let’s gooooooooo</span>
     </div>
   );

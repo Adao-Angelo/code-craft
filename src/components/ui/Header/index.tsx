@@ -1,12 +1,12 @@
 import {
   ArrowUp01Icon,
+  ArrowUpRight03Icon,
   Cancel01Icon,
-  Clock01Icon,
   Menu01Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useRef, useState } from "react";
-import { useCountdown } from "../../../hooks/use-countdown";
+import { GOOGLE_FORM_URL } from "../../enrollment-form/enrollment-form";
 import Logo from "../../Logo";
 import { Button } from "../Button/Button";
 import "./header.scss";
@@ -15,11 +15,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const { days, hours, minutes, seconds } = useCountdown("2026-07-10T00:00:00");
-
-  const targetDate = new Date("2026-07-10T00:00:00").getTime();
-  const now = new Date().getTime();
-  const isExpired = now >= targetDate;
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -67,21 +62,21 @@ export default function Header() {
         </menu>
 
         <div className="header-actions">
-          {!isExpired && (
+          <a target="_blank" rel="noopener noreferrer" href={GOOGLE_FORM_URL}>
             <Button
-              className="timer-button"
-              variant="primary"
               leftElement={
                 <HugeiconsIcon
-                  icon={Clock01Icon}
+                  icon={ArrowUpRight03Icon}
                   size={24}
                   color="currentColor"
+                  strokeWidth={1.5}
                 />
               }
+              className="submit-button"
             >
-              <span>{`${days}:${hours}:${minutes}:${seconds}`}</span>
+              ADERIR AGORA
             </Button>
-          )}
+          </a>
 
           <button
             ref={buttonRef}

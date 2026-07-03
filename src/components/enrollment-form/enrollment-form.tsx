@@ -3,7 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "../ui/Button/Button";
 import "./enrollment-form.scss";
 
-const GOOGLE_FORM_URL =
+export const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdMka4Pudsl2Gy7tgWeHO49w68Dyt2CtLiKubmevnWK_8gSzg/viewform";
 
 const steps = [
