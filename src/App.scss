@@ -92,12 +92,16 @@
         }
       }
 
+      .content-meet-and-timer {
+        padding: 5px 0;
+      }
+
       .google-meet-section {
         display: flex;
         align-items: center;
         gap: 0.5rem;
         margin-top: 5.875rem;
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
 
         img {
           width: 2.5rem;
@@ -223,8 +227,9 @@
 }
 
 .mask-section {
+
   .mask-container {
-    height: 200vh;
+    min-height: 100vh;
     position: relative;
     overflow-x: hidden;
   }
@@ -331,6 +336,9 @@
   background: var(--bg);
   overflow: hidden;
 
+
+
+
   .footer-info {
     display: flex;
     justify-content: space-between;
@@ -346,6 +354,23 @@
 
       img {
         width: 50px;
+      }
+    }
+
+    .footer-call-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: bold;
+
+      .icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--purple);
+        border-radius: 12px;
       }
     }
 

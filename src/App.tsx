@@ -1,5 +1,8 @@
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight03Icon } from "@hugeicons/core-free-icons";
+import {
+  ArrowUpRight03Icon,
+  CustomerSupportIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -22,6 +25,7 @@ import { TechCard } from "./components/tech-card/tech-card";
 import { Button } from "./components/ui/Button/Button";
 import GridPattern from "./components/ui/GridPattern/GridPattern";
 import Header from "./components/ui/Header";
+import Timer from "./components/ui/Timer/timer";
 import { techs } from "./constants/techs";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,7 +156,7 @@ function App() {
         scrollTrigger: {
           trigger: ".mask-container",
           start: "top -25%+=200",
-          end: "+=100%",
+          end: "+=200%",
           scrub: 1,
           pin: ".mask-image-container",
           anticipatePin: 1,
@@ -160,8 +164,8 @@ function App() {
       });
 
       tl.to(".mask-image-container", {
-        maskSize: "0vw",
-        webkitMaskSize: "0vw",
+        maskSize: "12vw",
+        webkitMaskSize: "12vw",
         ease: "none",
       })
         .to(".greenScreen", {
@@ -262,9 +266,14 @@ function App() {
                     <Button variant="secondary">Garanta sua vaga</Button>
                   </a>
                 </div>
-                <div className="google-meet-section">
-                  <Image src="/google-meet-logo.png"></Image>
-                  <span>GOOGLE MEET</span>
+
+                <div className="content-meet-and-timer">
+                  <div className="google-meet-section">
+                    <Image src="/google-meet-logo.png"></Image>
+                    <span>GOOGLE MEET</span>
+                  </div>
+
+                  <Timer />
                 </div>
               </div>
             </div>
@@ -354,13 +363,25 @@ function App() {
         </div>
 
         <div className="footer-content">
+          <div className="content-timer">
+            <p className="timer-title"> As aulas começam em:</p>
+            <Timer />
+          </div>
           <div className="footer-info">
             <Logo />
             <div className="footer-google-meet-section">
               <Image src="/google-meet-logo.png" />
               <span>GOOGLE MEET</span>
             </div>
-            <div className="footer-google-meet-section">
+            <div className="footer-call-section">
+              <div className="icon">
+                <HugeiconsIcon
+                  icon={CustomerSupportIcon}
+                  size={28}
+                  color="currentColor"
+                  strokeWidth={2}
+                />
+              </div>
               <span>947 636 149</span>
             </div>
             <Image className="float-box" src="/start.svg" />

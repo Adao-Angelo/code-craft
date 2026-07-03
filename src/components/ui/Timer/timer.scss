@@ -1,0 +1,70 @@
+.content-timer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+
+    p {
+        font-size: 20px;
+        border-bottom: 2px solid var(--purple);
+        text-align: center;
+        padding: 12px;
+
+    }
+
+
+}
+
+.countdown {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 2.5rem;
+
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.time-box {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--text);
+    backdrop-filter: blur(10px);
+
+    @media (max-width: 768px) {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+
+.time-value {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+}
+
+.time-label {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+        font-size: 0.5rem;
+    }
+}
