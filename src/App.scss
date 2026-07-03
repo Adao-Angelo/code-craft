@@ -224,8 +224,7 @@
 
 .mask-section {
   .mask-container {
-    height: 400vh;
-
+    height: 200vh;
     position: relative;
     overflow-x: hidden;
   }
@@ -238,8 +237,8 @@
     overflow: hidden;
 
 
-    mask-image: url("/mask.svg");
-    -webkit-mask-image: url("/mask.svg");
+    mask-image: url("./mask.svg");
+    -webkit-mask-image: url("./mask.svg");
 
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
@@ -288,12 +287,15 @@
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 10rem;
+
+
     }
   }
 
   .logo-on-mask {
     width: 200px;
     flex-shrink: 0;
+
   }
 
   .title-on-mask {

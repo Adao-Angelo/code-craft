@@ -86,15 +86,14 @@ function App() {
         scrollTrigger: {
           trigger: ".gsap-full-section",
           start: "top top",
-          end: () => "+=" + window.innerHeight * 4,
+          end: () => "+=" + window.innerHeight * 2,
           pin: true,
           scrub: true,
         },
       });
 
       timeline.from(split.chars, {
-        y: 70,
-        opacity: 0,
+        opacity: 0.2,
         stagger: 0.05,
         direction: 1,
       });
@@ -131,8 +130,8 @@ function App() {
   useGSAP(
     () => {
       gsap.set(".mask-image-container", {
-        maskSize: "99vw",
-        webkitMaskSize: "99vw",
+        maskSize: "90vw",
+        webkitMaskSize: "90vw",
       });
 
       gsap.set(".greenScreen", {
@@ -152,8 +151,8 @@ function App() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".mask-container",
-          start: "top -28%+=200",
-          end: "+=200%",
+          start: "top -25%+=200",
+          end: "+=100%",
           scrub: 1,
           pin: ".mask-image-container",
           anticipatePin: 1,
@@ -161,39 +160,37 @@ function App() {
       });
 
       tl.to(".mask-image-container", {
-        maskSize: "12vw",
-        webkitMaskSize: "12vw",
+        maskSize: "0vw",
+        webkitMaskSize: "0vw",
         ease: "none",
       })
         .to(".greenScreen", {
           opacity: 1,
           ease: "none",
         })
-        .to({}, { duration: 0.2 })
         .to(".mask-image-container", {
           opacity: 0,
           duration: 0.8,
-        })
-        .to(".logo-on-mask", {
-          y: 70,
-          rotation: 360,
+        });
+      tl.to(".logo-on-mask", {
+        y: 70,
+        rotation: 360,
+        duration: 1.2,
+        ease: "power3.inOut",
+      }).fromTo(
+        ".title-on-mask",
+        {
+          x: 80,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
           duration: 1.2,
-          ease: "power3.inOut",
-        })
-        .fromTo(
-          ".title-on-mask",
-          {
-            x: 80,
-            opacity: 0,
-          },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-          },
-          "<",
-        );
+          ease: "power3.out",
+        },
+        "<",
+      );
     },
     { scope: scopeRef },
   );
@@ -327,7 +324,7 @@ function App() {
         <section className="mask-section">
           <div className="mask-container #Container">
             <div className="mask-image-container #Hero">
-              <Image src="/mask-background.png" className="mask-image" />
+              <Image src="/mask.png" className="mask-image" />
 
               <div className="greenScreen"></div>
             </div>
