@@ -229,7 +229,7 @@ function App() {
             <Header />
             <div className='container'>
               <div className='hero-date-session'>
-                <span>A primeira sessão começa no dia 10 de Julho, 2026</span>
+                <span>A primeira sessão começa no dia 15 de Julho, 2026</span>
                 <Image src='/logo.svg' alt='logo'></Image>
               </div>
             </div>
