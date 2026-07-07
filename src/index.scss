@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
 * {
   margin: 0%;
   padding: 0%;
@@ -11,24 +10,32 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
+
+  @media (max-width: 1200px) {
+    padding: 0 20px;
+  }
 }
 
 :root {
-  --text: #F3EAFF;
-  --text-h: #F3EAFF;
-  --bg: #0F011A;
-  --border: #DEDEE6;
-  --accent: #22FB66;
-  --accent-bg: #22FB66;
-  --purple: #9700FF;
+  --text: #f3eaff;
+  --text-h: #f3eaff;
+  --bg: #0f011a;
+  --border: #dedee6;
+  --accent: #22fb66;
+  --accent-bg: #22fb66;
+  --purple: #9700ff;
   --sans: 'Inter', system-ui, Roboto, sans-serif;
   --heading: 'Inter', system-ui, Roboto, sans-serif;
 
-  --gradient-primary: linear-gradient(40deg, #0F011A 0%, #390260 60%, #8800E6 100%);
+  --gradient-primary: linear-gradient(
+    40deg,
+    #0f011a 0%,
+    #390260 60%,
+    #8800e6 100%
+  );
 
-
-  --cursor-default: url("/cursor.svg"), auto;
+  --cursor-default: url('/cursor.svg'), auto;
 
   font: 16px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -46,7 +53,6 @@
   }
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -62,7 +68,6 @@ h2 {
   font-weight: 600;
   color: var(--text-h);
 }
-
 
 a,
 p,
